@@ -1,5 +1,16 @@
 from menu import menu_print, get_valid_menu_input
 from utility import clear_screen
+from datetime import datetime
+
+
+def ervenyes_datum():
+    while True:
+        datum = input("Adja meg a foglalás dátumát (YYYY-MM-DD formátumban): ")
+        try:
+            datetime.strptime(datum, "%Y-%m-%d")
+            return datum
+        except ValueError:
+            print("Hiba: Kérjük, a dátumot YYYY-MM-DD formátumban adja meg!")
 
 
 def jaratok_listazasa(legi_tarsasag):
@@ -17,13 +28,18 @@ def foglalas(jegy_foglalas, legi_tarsasag):
     for jarat in legi_tarsasag.jaratok:
         print(f"- {jarat.jaratszam}")
 
-    jaratszam = input("\nAdja meg a járatszámot: ")
+    while True:
+        jaratszam = input("\nAdja meg a járatszámot: ")
+        jarat = next((j for j in legi_tarsasag.jaratok if j.jaratszam == jaratszam), None)
+        if jarat:
+            break
+        else:
+            print("Hiba: Nem található ilyen járatszám!")
+
     utas_nev = input("Adja meg az utas nevét: ")
-    jarat = next((j for j in legi_tarsasag.jaratok if j.jaratszam == jaratszam), None)
-    if jarat:
-        print(jegy_foglalas.jegy_foglalasa(jarat, utas_nev))
-    else:
-        print("Hiba: Nem található ilyen járatszám!")
+    datum = ervenyes_datum()
+
+    print(jegy_foglalas.jegy_foglalasa(jarat, utas_nev, datum))
     input("\nA folytatáshoz nyomjon meg egy billentyűt...")
 
 

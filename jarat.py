@@ -1,8 +1,10 @@
 class Jarat:
-    def __init__(self, jaratszam, celallomas, jegyar, idotartam):
+    def __init__(self, jaratszam, celallomas, jegyar, indulas, erkezes, idotartam):
         self.jaratszam = jaratszam
         self.celallomas = celallomas
         self.jegyar = jegyar
+        self.indulas = indulas
+        self.erkezes = erkezes
         self.idotartam = idotartam
 
     def jarat_info(self):
@@ -15,6 +17,8 @@ class BelfoldiJarat(Jarat):
             f"Belföldi járat - Járatszám: {self.jaratszam}\n"
             f"Célállomás: {self.celallomas}\n"
             f"Jegyár: {self.jegyar} HUF\n"
+            f"Indulás: {self.indulas} óra\n"
+            f"Érkezés: {self.erkezes} óra\n"
             f"Időtartam: {self.idotartam} óra"
         )
 
@@ -25,6 +29,8 @@ class NemzetkoziJarat(Jarat):
             f"Nemzetközi járat - Járatszám: {self.jaratszam}\n"
             f"Célállomás: {self.celallomas}\n"
             f"Jegyár: {self.jegyar} HUF\n"
+            f"Indulás: {self.indulas} óra\n"
+            f"Érkezés: {self.erkezes} óra\n"
             f"Időtartam: {self.idotartam} óra"
         )
 

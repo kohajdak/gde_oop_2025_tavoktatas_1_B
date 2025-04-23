@@ -7,17 +7,17 @@ from utility import clear_screen
 
 def main():
     legi_tarsasag = LegiTarsasag("KK-Air Hungary")
-    legi_tarsasag.jarat_hozzaadasa(BelfoldiJarat("B001", "A - B", 5000, "00:45"))
-    legi_tarsasag.jarat_hozzaadasa(NemzetkoziJarat("N001", "C - D", 25000, "01:50"))
-    legi_tarsasag.jarat_hozzaadasa(NemzetkoziJarat("N002", "E - F", 45000, "03:45"))
+    legi_tarsasag.jarat_hozzaadasa(BelfoldiJarat("B001", "A - B", 5000, "15:30", "16:15", "00:45"))
+    legi_tarsasag.jarat_hozzaadasa(NemzetkoziJarat("N001", "C - D", 25000, "09:20", "11:10", "01:50"))
+    legi_tarsasag.jarat_hozzaadasa(NemzetkoziJarat("N002", "E - F", 45000, "13:15", "17:00", "03:45"))
 
     jegy_foglalas = JegyFoglalas()
-    jegy_foglalas.jegy_foglalasa(legi_tarsasag.jaratok[0], "Rácz Gábor")
-    jegy_foglalas.jegy_foglalasa(legi_tarsasag.jaratok[1], "Szőke László")
-    jegy_foglalas.jegy_foglalasa(legi_tarsasag.jaratok[2], "Szűcs Szabina")
-    jegy_foglalas.jegy_foglalasa(legi_tarsasag.jaratok[0], "Pásztor Endre")
-    jegy_foglalas.jegy_foglalasa(legi_tarsasag.jaratok[1], "Nagy Adél")
-    jegy_foglalas.jegy_foglalasa(legi_tarsasag.jaratok[2], "Bogdán Sándor")
+    jegy_foglalas.jegy_foglalasa(legi_tarsasag.jaratok[0], "Rácz Gábor", "2025-06-02")
+    jegy_foglalas.jegy_foglalasa(legi_tarsasag.jaratok[1], "Szőke László", "2025-06-05")
+    jegy_foglalas.jegy_foglalasa(legi_tarsasag.jaratok[2], "Szűcs Szabina", "2025-06-06")
+    jegy_foglalas.jegy_foglalasa(legi_tarsasag.jaratok[0], "Pásztor Endre", "2025-06-03")
+    jegy_foglalas.jegy_foglalasa(legi_tarsasag.jaratok[1], "Nagy Adél", "2025-06-02")
+    jegy_foglalas.jegy_foglalasa(legi_tarsasag.jaratok[2], "Bogdán Sándor", "2025-06-01")
 
     while True:
         menu_print("main")
