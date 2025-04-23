@@ -38,13 +38,29 @@ def foglalasok_kezelese(jegy_foglalas):
             print("Aktív foglalások:")
             print(jegy_foglalas.foglalasok_listazasa())
             input("\nA folytatáshoz nyomjon meg egy billentyűt...")
+
         elif menu_selected == 2:
-            try:
-                foglalas_id = int(input("Adja meg a lemondani kívánt foglalás ID-jét: "))
+            while True:
+                try:
+                    foglalas_id = int(input("Adja meg a lemondani kívánt foglalás ID-jét: "))
+                    if foglalas_id <= 0:
+                        print("Hiba: Az ID csak pozitív egész szám lehet!")
+                        continue
+                except ValueError:
+                    print("Hiba: Az ID csak pozitív egész szám lehet!")
+                    continue
+
                 utas_nev = input("Adja meg az utas nevét: ")
-                print(jegy_foglalas.foglalas_lemondasa(foglalas_id, utas_nev))
-            except ValueError:
-                print("Hiba: Az ID csak szám lehet!")
-            input("\nA folytatáshoz nyomjon meg egy billentyűt...")
+
+                eredmeny = jegy_foglalas.foglalas_lemondasa(foglalas_id, utas_nev)
+                print(eredmeny)
+
+                if "Nincs ilyen foglalás" in eredmeny:
+                    input("\nA folytatáshoz nyomjon meg egy billentyűt...")
+                    break
+                else:
+                    input("\nA folytatáshoz nyomjon meg egy billentyűt...")
+                    break
+
         elif menu_selected == 0:
             break
