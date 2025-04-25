@@ -8,15 +8,24 @@ class JegyFoglalas:
         self.next_id += 1
         self.foglalasok.append({"id": foglalas_id, "utas": utas_nev, "jarat": jarat, "datum": datum})
         return (
-            f"\nFoglalás sikeres!\n\nFoglalás ID: {foglalas_id}\n{jarat.jarat_info()}"
-            f"\nUtas: {utas_nev}\nFoglalás dátuma: {datum}"
+            f"\nFoglalás sikeres!\n\n"
+            f"Foglalás ID: {foglalas_id}\n"
+            f"{jarat.jarat_info()}\n"
+            f"Utas: {utas_nev}\n"
+            f"Foglalás dátuma: {datum}"
         )
 
     def foglalas_lemondasa(self, foglalas_id, utas_nev):
         for foglalas in self.foglalasok:
             if foglalas["id"] == foglalas_id and foglalas["utas"] == utas_nev:
                 self.foglalasok.remove(foglalas)
-                return f"\nFoglalás lemondva!\n\nFoglalás ID: {foglalas_id}\n{foglalas['jarat'].jarat_info()}\nUtas: {utas_nev}\nFoglalás dátuma: {foglalas['datum']}"
+            return (
+                f"\nFoglalás lemondva!\n\n"
+                f"Foglalás ID: {foglalas_id}\n"
+                f"{foglalas['jarat'].jarat_info()}\n"
+                f"Utas: {utas_nev}\n"
+                f"Foglalás dátuma: {foglalas['datum']}"
+            )
         return "Hiba: Nincs ilyen foglalás az adott ID-val és névvel!"
 
     def foglalasok_listazasa(self):
