@@ -19,13 +19,13 @@ class JegyFoglalas:
         for foglalas in self.foglalasok:
             if foglalas["id"] == foglalas_id and foglalas["utas"] == utas_nev:
                 self.foglalasok.remove(foglalas)
-            return (
-                f"\nFoglalás lemondva!\n\n"
-                f"Foglalás ID: {foglalas_id}\n"
-                f"{foglalas['jarat'].jarat_info()}\n"
-                f"Utas: {utas_nev}\n"
-                f"Foglalás dátuma: {foglalas['datum']}"
-            )
+                return (
+                    f"\nFoglalás lemondva!\n\n"
+                    f"Foglalás ID: {foglalas_id}\n"
+                    f"{foglalas['jarat'].jarat_info()}\n"
+                    f"Utas: {utas_nev}\n"
+                    f"Foglalás dátuma: {foglalas['datum']}"
+                )
         return "Hiba: Nincs ilyen foglalás az adott ID-val és névvel!"
 
     def foglalasok_listazasa(self):
